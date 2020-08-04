@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: logstash
+  name: logstash
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: logstash
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: logstash
+    spec:
+      containers:
+      - args:
+        - logstash
+        - -f
+        - /config/logstash.conf
+        image: logstash:2
+        imagePullPolicy: ""
+        name: logstash
+        resources: {}
+        volumeMounts:
+        - mountPath: /config
+          name: logstash-claim0
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes:
+      - name: logstash-claim0
+        persistentVolumeClaim:
+          claimName: logstash-claim0
+status: {}
