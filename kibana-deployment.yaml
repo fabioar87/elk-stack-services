@@ -1,10 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.21.0 (992df58d8)
-  creationTimestamp: null
   labels:
     io.kompose.service: kibana
   name: kibana
@@ -16,9 +12,6 @@ spec:
   strategy: {}
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.21.0 (992df58d8)
       creationTimestamp: null
       labels:
         io.kompose.service: kibana
@@ -27,7 +20,7 @@ spec:
       - env:
         - name: ELASTIC_SEARCH_URL
           value: http://elasticsearch:9200
-        image: kibana:4
+        image: kibana:6.8.10
         imagePullPolicy: ""
         name: kibana
         ports:

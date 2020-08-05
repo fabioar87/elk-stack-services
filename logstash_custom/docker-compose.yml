@@ -3,20 +3,31 @@ version: "3.1"
 services:
    
    logstash:
-      image: fabiomatcomp/logstash_custom:latest
+      image: fabiomatcomp/logstash_custom   
       command: logstash -f /config/logstash.conf
+      volumes:
+        - ./data:/opt
       links:
          - elasticsearch
       depends_on:
          - elasticsearch
    
    elasticsearch:
-      image: elasticsearch:2
+      image: docker.elastic.co/elasticsearch/elasticsearch:7.8.1
+      environment:
+        - node.name=es01
+        - cluster.initial_master_nodes=es01
+        - bootstrap.memory_lock=true
+        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      ulimits:
+        memlock:
+          soft: -1
+          hard: -1
       ports:
          - "9200:9200"
 
    kibana:
-      image: kibana:4
+      image: kibana:6.8.10
       ports:
          - "5601:5601"
       links:

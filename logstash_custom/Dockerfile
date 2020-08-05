@@ -1,4 +1,4 @@
-FROM logstash:2
+FROM docker.elastic.co/logstash/logstash:7.8.1
 
-ADD ./logstash.conf /config/logstash.conf
+ADD ./conf/logstash.conf /config/logstash.conf
 CMD ["logstash", "-f", "/config/logstash.conf"]
