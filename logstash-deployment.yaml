@@ -29,17 +29,10 @@ spec:
         - logstash
         - -f
         - /config/logstash.conf
-        image: logstash:2
+        image: fabiomatcomp/logstash_custom:latest
         imagePullPolicy: ""
         name: logstash
         resources: {}
-        volumeMounts:
-        - mountPath: /config
-          name: logstash-claim0
       restartPolicy: Always
       serviceAccountName: ""
-      volumes:
-      - name: logstash-claim0
-        persistentVolumeClaim:
-          claimName: logstash-claim0
 status: {}
