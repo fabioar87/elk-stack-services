@@ -1,6 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
   labels:
     io.kompose.service: elasticsearch
   name: elasticsearch
@@ -12,6 +16,10 @@ spec:
   strategy: {}
   template:
     metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
       labels:
         io.kompose.service: elasticsearch
     spec:
@@ -29,7 +37,13 @@ spec:
         ports:
         - containerPort: 9200
         resources: {}
+        volumeMounts:
+          - mountPath: /data
+            name: elasticsearch-claim1
       restartPolicy: Always
       serviceAccountName: ""
-      volumes: null
+      volumes:
+        - name: elasticsearch-claim1
+          persistentVolumeClaim:
+            claimName: elasticsearch-claim1 
 status: {}
