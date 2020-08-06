@@ -1,29 +1,13 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Neueda technical test. 
 
-### What is this repository for? ###
+### Technical Requirements ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Some technical requirements to implement the solution. I implemented locally, with no CSP (Cloud Service Provider) service. Kind has been used to create a kubernetes cluster environment locally.
+There are some limitations in this approach, such as using Services kubernetes object LoadBalancer. However for the purpose of demonstrate the solution implementation, some work around can be taken for exaample, using NodePort as Service.
 
-### How do I get set up? ###
+* Go version 1.13+ [Go official page](https://golang.org/)
+* Kind (Kubernets in Docker) version v0.9.0 [Kind official page](https://kind.sigs.k8s.io/)
+* Linux operating system
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
