@@ -45,5 +45,5 @@ spec:
       volumes:
         - name: elasticsearch-claim1
           persistentVolumeClaim:
-            claimName: elasticsearch-claim1 
+            claimName: elasticsearch-claim1
 status: {}

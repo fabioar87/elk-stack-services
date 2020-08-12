@@ -1,6 +1,6 @@
 # README #
 
-Neueda technical test. 
+Neueda technical test.
 
 ### Technical Requirements ###
 
@@ -11,3 +11,4 @@ There are some limitations in this approach, such as using Services kubernetes o
 * Kind (Kubernets in Docker) version v0.9.0 [Kind official page](https://kind.sigs.k8s.io/)
 * Linux operating system
 
+## Local Cluster Configuration ##

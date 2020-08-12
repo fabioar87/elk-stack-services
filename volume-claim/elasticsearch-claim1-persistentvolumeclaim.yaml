@@ -3,12 +3,12 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: logstash-claim0
-  name: logstash-claim0
+    io.kompose.service: elasticsearch-claim1
+  name: elasticsearch-claim1
 spec:
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 100Mi
+      storage: 10Mi
 status: {}
