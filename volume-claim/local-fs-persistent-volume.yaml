@@ -4,10 +4,19 @@ metadata:
   name: local-fs-pv
 spec:
   capacity:
-    storage: 100Mi
+    storage: 10Gi
   accessModes:
   - ReadWriteOnce
-  - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: "/data"
+  storageClassName: local-storage
+  local:
+    path: /data
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - elk-worker
+          - elk-worker2

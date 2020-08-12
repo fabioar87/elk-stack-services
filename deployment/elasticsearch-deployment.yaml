@@ -31,6 +31,8 @@ spec:
           value: es01
         - name: node.name
           value: es01
+        - name: node.max_local_storage_nodes
+          value: "3"
         image: docker.elastic.co/elasticsearch/elasticsearch:7.8.1
         imagePullPolicy: ""
         name: elasticsearch
@@ -38,7 +40,7 @@ spec:
         - containerPort: 9200
         resources: {}
         volumeMounts:
-          - mountPath: /data
+          - mountPath: /usr/share/elasticsearch/data
             name: elasticsearch-claim1
       restartPolicy: Always
       serviceAccountName: ""
